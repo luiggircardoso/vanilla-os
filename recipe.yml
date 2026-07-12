@@ -36,13 +36,6 @@ stages:
         - btop
         - fastfetch
 
-  - name: adicionar-repositorio-non-free
-    type: shell
-    commands:
-      - >
-        sed -i 's/Components: main/Components: main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources
-      - apt-get update
-
   - name: instalar-driver-realtek
     type: apt
     sources:
