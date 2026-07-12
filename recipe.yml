@@ -26,7 +26,7 @@ stages:
 
   # Put your custom actions below this comment
 
-  - name: example-packages
+  - name: install-packages
     type: apt
     sources:
       - packages:
@@ -39,7 +39,7 @@ stages:
   - name: adicionar-repositorio-non-free
     type: shell
     commands:
-      - sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list
+      - sed -i 's/Components: main/Components: main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources
       - apt-get update
 
   - name: instalar-driver-realtek
